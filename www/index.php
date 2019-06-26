@@ -1,0 +1,621 @@
+<?php
+include "config.php";
+?>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Yellow Hill - курси підготовки до зно в києві та онлайн.</title>
+    <meta name="description" content="Потрібен репетитор? Підготовка до ЗНО в Yellow Hill - зручний та приємний спосіб здобути нових знань. Ми знаємо, як підготуватися до зно максимально ефективно.">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <style>
+        .preloader__holder {
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            position: fixed;
+            z-index: 200;
+        }
+        .white-preload {
+            background-image: url(img/white-preload.png);
+        }
+
+        .yellow-preload {
+            background-image: url(img/yellow-preload.png);
+        }
+        .white-preload, .yellow-preload {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            -webkit-background-size: cover;
+            background-size: cover;
+            background-repeat: no-repeat;
+            animation-delay: 1s;
+            animation-fill-mode: forwards;
+            -webkit-animation-duration: 2s;
+            -moz-animation-duration: 2s;
+            -o-animation-duration: 2s;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+
+        }
+
+        .white-preload.loaded {
+            -webkit-animation-name: preload-1;
+            animation-name: preload-1;
+        }
+
+        .yellow-preload.loaded {
+            -webkit-animation-name: preload-2;
+            animation-name: preload-2;
+        }
+
+
+
+        @-webkit-keyframes preload-1 {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -600px -600px;
+
+            }
+        }
+
+        @keyframes preload-1 {
+            0% {
+                background-position: 0 0;
+
+            }
+            100% {
+                background-position: -600px -600px;
+
+            }
+        }
+
+        @-webkit-keyframes preload-2 {
+            0% {
+                background-position: 0 0;
+
+            }
+            100% {
+                background-position: 600px 600px;
+
+            }
+        }
+
+        @keyframes preload-2 {
+            0% {
+                background-position: 0 0;
+
+            }
+            100% {
+                background-position: 600px 600px;
+
+            }
+        }
+        @media screen and (max-width: 768px){
+            .preloader__holder{
+                display: none;
+            }
+        }
+    </style>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-KWG99TG');</script>
+    <!-- End Google Tag Manager -->
+
+    <link rel="stylesheet" href="css/main.min.css">
+</head>
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KWG99TG"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!--PRELOADER-->
+<div class="preloader__holder">
+    <div class="white-preload"></div>
+    <div class="yellow-preload"></div>
+</div>
+
+<!--HEADER START-->
+
+<header class="header">
+    <div class="sticky-mountain">
+        <div class="sticky-mountain__holder">
+            <img src="img/mountain.svg" alt="" style="width: 85%">
+        </div>
+    </div>
+    <div class="container">
+        <div class="main-header">
+            <img src="img/mobile-logo-<?php echo $_SESSION['lang'] ?>.svg" alt="" class="sticky-header-logo">
+        <nav class="menu">
+            <ul class="menu__list">
+                <li class="menu__item"><a class="menu__link anchor" href="#subject"><?php echo $lang['предмети'] ?></a></li>
+                <br class="mobile__br">
+                <li class="menu__item"><a class="menu__link anchor" href="#service"><?php echo $lang['ціни'] ?></a></li>
+                <br class="mobile__br">
+                <li class="menu__item"><a class="menu__link anchor" href="#sale"><?php echo $lang['акції'] ?></a></li>
+                <br class="mobile__br">
+                <li class="menu__item"><a class="menu__link courses-link" href="#courses"><?php echo $lang['курси'] ?></a></li>
+                <br class="mobile__br">
+                <li class="menu__item"><a class="menu__link anchor" href="#contact"><?php echo $lang['контакти'] ?></a></li>
+
+            </ul>
+        </nav>
+        <div class="lang__buttons">
+            <a class="lang-link" href="?lang=ru">рус</a> |
+            <a class="lang-link" href="?lang=uk">укр</a>
+        </div>
+        </div>
+
+        <div id="nav-icon3">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <img src="img/mobile-logo-<?php echo $_SESSION['lang'] ?>.svg" alt="" class="mobile-logo">
+
+        <div class="header__main">
+            <img src="img/logo.svg" alt="">
+            <div style="text-align: center;">
+                <a href="#about" class="scroll-link">
+                    <?php echo file_get_contents("img/scroll.svg"); ?>
+                </a>
+            </div>
+            <span class="header__span" data-text="<?php echo $lang['курси підготовки до ЗНО'] ?>"><?php echo $lang['курси'] ?> <br><?php echo $lang['підготовки'] ?> <br><?php echo $lang['до ЗНО'] ?></span>
+        </div>
+    </div>
+</header>
+
+
+<!--HEADER END-->
+
+<!--ABOUT SECTION START-->
+
+<section class="about" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-6">
+                <p><span>Yellow Hill</span> - <?php echo $lang['це унікальна команда людей, яка виконує свою роботу в сфері освіти якісно та сучасно. Наші викладачі - молоді професіонали, які вміють зацікавити учня та знають все про вступ та навчання в найкращих ВНЗ Києва. Наші курси підготовки до зно (Київ та вся Україна) - найкращий варіант для амбітного старшокласника. Ми підберемо для вас найбільш гнучкий графік та формат навчання, а головне - ви не залишитеся байдужими до науки після спілкування з нашими викладачами. Репетитор ЗНО в Yellow Hill - це професіонал та твій хороший друг, який знає, як підготуватися до екзаменів. Телефонуйте нам просто зараз і ми відповімо на всі ваші запитання!']?></p>
+                <a href="#request" class="about__button"><?php echo $lang['Подати заявку'] ?></a>
+                <img src="img/mountain.svg" alt="" class="mobile-mountain">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--ABOUT SECTION END-->
+
+<!--ADVANTAGES SECTION START-->
+
+<section class="advantages">
+    <div class="container">
+        <h2 class="advantages__title wow fadeIn"><img src="img/advantages-title_<?php echo $_SESSION['lang'] ?>.svg" alt="" width="350"></h2>
+        <div class="row">
+            <div class="offset-lg-2 offset-md-4"></div>
+            <div class="col-lg-10 col-md-8">
+                <div class="row advantages__holder">
+                    <div class="col-lg-3 col-md-6 order-3 order-md-1">
+                        <div class="advantages__item advantages__item--1">
+                            <img class="wow fadeIn" data-wow-duration="1.5s" data-wow-delay="1.2s" src="img/cross.svg" width="140" alt="">
+                            <p class="wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.7s" style="font-size: 19px;"><?php echo $lang['щоденне спілкування <br>з викладачем <br>онлайн'] ?></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mobile-hidden order-md-2">
+                        <div class="advantages__item advantages__item--2 ">
+                            <img class="wow fadeIn"  data-wow-duration="1.5s" data-wow-delay="0.8s" src="img/cross.svg" width="140" alt="">
+                            <p class="wow fadeIn"  data-wow-duration="1.5s" data-wow-delay="0.3s" style="font-size: 18px;"><?php echo $lang['систематизована <br>програма <br>викладання'] ?></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 order-2 order-md-3">
+                        <div class="advantages__item advantages__item--3">
+                            <img class="wow fadeIn"  data-wow-duration="1.5s" data-wow-delay="1.5s" src="img/cross.svg" width="140" alt="">
+                            <p class="wow fadeIn"  data-wow-duration="1.5s" data-wow-delay="1s" style="font-size: 15px;"><?php echo $lang['ви можете обрати <br>формат та графік занять, <br>який зручний <br>для вас <br>(групові або індивідуальні, <br>онлайн чи в офісі)'] ?></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 order-1 order-md-4">
+                        <div class="advantages__item advantages__item--4">
+                            <img class="wow fadeIn"  data-wow-duration="1.5s" data-wow-delay="1s" src="img/cross.svg" width="140" alt="">
+                            <p class="wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.5s" style="font-size: 18px;"><?php echo $lang['допомагаємо на <br>всіх етапах вступу <br>до ВНЗ'] ?></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 order-5 order-md-5">
+                        <div class="advantages__item advantages__item--5">
+                            <img class="wow fadeIn" data-wow-duration="1.5s"  data-wow-delay="1s" src="img/cross.svg" width="140" alt="">
+                            <p class="wow fadeIn"  data-wow-duration="1.5s" data-wow-delay="0.5s" style="font-size: 19px;"><?php echo $lang['ми створюємо <br>власні унікальні <br>та зручні у <br>використанні матеріали'] ?></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mobile-hidden order-md-6">
+                        <div class="advantages__item advantages__item--6 ">
+                            <img class="wow fadeIn"  data-wow-duration="1.5s" data-wow-delay="1.2s" src="img/cross.svg" width="140" alt="">
+                            <p class="wow fadeIn"  data-wow-duration="1.5s" data-wow-delay="0.7s" style="font-size: 16px;"><?php echo $lang['наші викладачі <br>дають актуальні <br>поради щодо <br>успішної здачі зно <br>та навчання <br>в університетах'] ?></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 order-4 order-md-7">
+                        <div class="advantages__item advantages__item--7">
+                            <img class="wow fadeIn" data-wow-duration="1.5s"  data-wow-delay="0.5s" src="img/cross.svg" width="140" alt="">
+                            <p class="wow fadeIn" data-wow-duration="1.5s"  style="font-size: 19px;"><?php echo $lang['безкоштовне <br>пробне <br>заняття'] ?></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 mobile-hidden order-md-8">
+                        <div class="advantages__item advantages__item--8 ">
+                            <img class="wow fadeIn" data-wow-duration="1.5s"  data-wow-delay="1.7s" src="img/cross.svg" width="140" alt="">
+                            <p class="wow fadeIn" data-wow-duration="1.5s"  data-wow-delay="1.2s" style="font-size: 19px;"><?php echo $lang['використовуємо <br>сучасну та ефективну <br>методику навчання'] ?></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 mobile-hidden order-md-9">
+                        <div class="advantages__item advantages__item--9 ">
+                            <img class="wow fadeIn" data-wow-duration="1.5s"  data-wow-delay="0.9s" src="img/cross.svg" width="140" alt="">
+                            <p class="wow fadeIn"  data-wow-duration="1.5s" data-wow-delay="0.4s" style="font-size: 19px;"><?php echo $lang['своєчасний моніторинг знань <br>та постійний доступ <br>до результатів успішності'] ?></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--ADVANTAGES SECTION END-->
+
+<!--SERVICE SECTION START-->
+
+<section class="service" id="service">
+    <div class="container">
+        <h2 class="service__title"><img src="img/service-title_<?php echo $_SESSION['lang'] ?>.svg" alt="" width="200"></h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 col-sm-8">
+                <div class="service__item wow fadeIn">
+                    <img src="img/price-1.svg" alt="">
+                    <p><?php echo $lang['за заняття <br> при замовленні <br> трьох предметів'] ?></p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-8 offset-sm-4 offset-md-0">
+                <div class="service__item wow fadeIn" data-wow-delay="0.5s">
+                    <img src="img/price-2.svg" alt="">
+                    <p><?php echo $lang['за заняття <br> при замовленні <br> двох предметів'] ?></p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-8">
+                <div class="service__item service__item-last wow fadeIn" data-wow-delay="1s">
+                    <img src="img/price-3.svg" alt="">
+                    <p class="service__item-p"><?php echo $lang['за заняття <br> при замовленні <br> одного предмету'] ?></p>
+                </div>
+            </div>
+        </div>
+        <p style="font-size: 13px;font-weight: bold"><?php echo $lang['10% від щомісячного прибутку ми перераховуємо на благодійність'] ?></p>
+    </div>
+</section>
+
+<!--SERVICE SECTION END-->
+<!--SALE SECTION START-->
+
+<section class="sale" id="sale">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-10 col-md-12">
+                <h2 class="sale__title"><img src="img/stock-title_<?php echo $_SESSION['lang'] ?>.svg" alt="" width="210"></h2>
+                <div class="row">
+                    <div class="col-lg-5 col-xl-5 col-md-7 col-sm-10 col-12">
+                        <div class="sale__item">
+                            <div class="sale__price sale__price-1">
+                                <img src="img/action.svg" alt="" width="230">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="offset-md-6 offset-xl-0"></div>
+                    <div class="col-lg-5 col-xl-7 col-md-7 col-sm-10 col-12">
+                        <div class="sale__item sale__description">
+                            <p><?php echo $lang['за заняття при замовленні <br> курсів у будь-якій з цих комбінацій:'] ?></p>
+                            <ul>
+                                <li><?php echo $lang['українська мова + географія'] ?></li>
+                                <li><?php echo $lang['українська мова + англійська мова'] ?></li>
+                                <li><?php echo $lang['географія + історія України'] ?></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--<section class="timer">-->
+<!--    <div class="row">-->
+<!--        <div class="col-lg-12 text-center">-->
+<!--            <h3 class="timer-title">--><?php //echo $lang['Поспішайте! Акції діють до 10 вересня'] ?><!--</h3>-->
+<!--            <p>--><?php //echo $lang['До кінця акції залишилось:'] ?><!--</p>-->
+<!--            <div id="timer">-->
+<!--                <div id="days"><i class="days-text"></i><span>--><?php //echo $lang['Днів'] ?><!--</span></div>-->
+<!--                <div id="hours"><i class="hours-text"></i><span>--><?php //echo $lang['Годин'] ?><!--</span></div>-->
+<!--                <div id="minutes"><i class="minutes-text"></i><span>--><?php //echo $lang['Хвилин'] ?><!--</span></div>-->
+<!--                <div id="seconds"><i class="seconds-text"></i><span>--><?php //echo $lang['Секунд'] ?><!--</span></div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+<!--SALE SECTION END-->
+<!--SUBJECT SECTION START-->
+
+<section class="subject" id="subject">
+    <div class="subject__wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-6 order-md-1 order-1">
+                    <div class="subject__item">
+                        <h3 class="subject__title"><?php echo $lang['Географія'] ?></h3>
+                        <div class="subject__img">
+                            <img src="img/subjects/geography.svg" alt="Географія" width="80">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 col-6 order-md-2 order-2">
+                    <div class="subject__item">
+                        <h3 class="subject__title"><?php echo $lang['Англійська мова'] ?></h3>
+                        <div class="subject__img">
+                            <img src="img/subjects/english.svg" alt="Англійська мова" width="100">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-6 order-md-3 order-3">
+                    <div class="subject__item">
+                        <h3 class="subject__title"><?php echo $lang['Хімія'] ?></h3>
+                        <div class="subject__img">
+                            <img src="img/subjects/chemistry.svg" alt="Хімія" width="70">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-6 order-md-4 order-7">
+                    <div class="subject__item">
+                        <h3 class="subject__title"><?php echo $lang['Історія України'] ?></h3>
+                        <div class="subject__img">
+                            <img src="img/subjects/history.svg" alt="Історія України" width="50">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-6 order-md-5 order-4">
+                    <div class="subject__item">
+                        <h3 class="subject__title"><?php echo $lang['Українська мова і література'] ?></h3>
+                        <div class="subject__img">
+                            <img src="img/subjects/ukrainian.svg" alt="Українська мова і література" width="60">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-6 order-md-6 order-8">
+                    <div class="subject__item">
+                        <h3 class="subject__title"><?php echo $lang['Біологія'] ?></h3>
+                        <div class="subject__img">
+                            <img src="img/subjects/biology.svg" alt="Біологія" width="80">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 col-6 order-md-7 order-5">
+                    <div class="subject__item">
+                        <h3 class="subject__title"><?php echo $lang['Математика'] ?></h3>
+                        <div class="subject__img">
+                            <img src="img/subjects/math.svg" alt="Математика" width="110">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-6 order-md-8 order-6">
+                    <div class="subject__item">
+                        <h3 class="subject__title"><?php echo $lang['Фізика'] ?></h3>
+                        <div class="subject__img">
+                            <img src="img/subjects/physics.svg" alt="Фізика" width="70">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <a href="#request" class="subject__button">
+            <?php echo file_get_contents("img/subject-button_" .  $_SESSION['lang'] . ".svg"); ?>
+        </a>
+    </div>
+
+</section>
+
+<!--SUBJECT SECTION END-->
+
+<!--COURSES SECTION START-->
+
+<section class="courses" id="courses">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2 class="courses__title"><img src="img/courses-title_<?php echo $_SESSION['lang'] ?>.svg" alt="" width="200"></h2>
+                <div class="row">
+                    <div class="col-md-5 col-sm-5 col-6">
+                        <div class="courses__item  courses__item--disabled">
+                            <h3>Стандарт</h3>
+                            <p>105 <br> <?php echo $lang['годин'] ?></p>
+                            <p>2 <br> <?php echo $lang['заняття\тиждень'] ?></p>
+                            <p>35 <br> <?php echo $lang['тижнів'] ?></p>
+							<p><?php echo $lang['Набір закінчено'] ?></p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-2 mob-hidden">
+                        <div class="courses__item courses__item--img">
+                            <h3></h3>
+                            <p><img src="img/sand-clock.svg" alt="" width="55"></p>
+                            <p><img src="img/clock.svg" alt="" width="55"></p>
+                            <p><img src="img/calendar.svg" alt="" width="55"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-sm-5 col-6">
+                        <div class="courses__item" style=" word-break: keep-all">
+                            <h3><?php echo $lang['Експрес'] ?></h3>
+                            <p>100<br> <?php echo $lang['годин'] ?></p>
+                            <p>3 <br> <?php echo $lang['заняття\тиждень'] ?></p>
+                            <p>21 <br> <?php echo $lang['тиждень'] ?></p>
+                            <p><span class="start-span"><?php echo $lang['Набір розпочався!'] ?></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="books-holder">
+                    <img src="img/books.svg" alt="">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!--COURSES SECTION END-->
+
+
+
+
+<!--REQUEST SECTION START-->
+
+<section class="request" id="request">
+    <div class="container">
+        <form action="" class="request__form" id="request-form">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                <h2 class="request__title"><?php echo $lang['Подавайте заявку на безкоштовне пробне заняття'] ?></h2>
+                </div>
+                    <div class="col-md-6">
+                    <div class="input-group">
+                        <div class="input__holder input-effect">
+                            <input class="effect-24 request__input" type="text" name="first-name" id="name" placeholder="">
+                            <label><?php echo $lang['Ім\'я (обов\'язково)'] ?></label>
+                            <span class="focus-bg"></span>
+                        </div>
+
+                        <div class="input__holder input-effect">
+                            <input class="effect-24 request__input" type="text" name="telephone" id="phone" placeholder="">
+                            <label><?php echo $lang['Телефон (обов\'язково)'] ?></label>
+                            <span class="focus-bg"></span>
+                        </div>
+
+                        <div class="input__holder input-effect">
+                            <input class="effect-24 request__input" type="email" name="email-address" id="email" placeholder="">
+                            <label><?php echo $lang['E-mail'] ?></label>
+                            <span class="focus-bg"></span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="checkbox" value="Дзвінок" class="check" id="check1" name="check"/>
+                        <label for="check1">
+                            <svg viewBox="0,0,50,50">
+                                <path d="M5 30 L 20 45 L 45 5"></path>
+                            </svg>
+                            <span><?php echo $lang['Дзвінок'] ?></span>
+
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" value="Повідомлення"  class="check" id="check2" name="check"/>
+                        <label for="check2" >
+                            <svg viewBox="0,0,50,50">
+                                <path d="M5 30 L 20 45 L 45 5"></path>
+                            </svg>
+                            <span><?php echo $lang['Повідомлення'] ?></span>
+                        </label>
+
+                    </div>
+
+                </div>
+                <div class="col-sm-12 text-center">
+                    <button type="submit" class="request__button request__button--people"><?php echo $lang['Подати заявку'] ?></button>
+                </div>
+
+                <div id="msgSubmit" class="h3 text-center hidden"></div>
+
+            </div>
+        </form>
+    </div>
+</section>
+
+<!--REQUEST SECTION END-->
+
+<!--CONTACT SECTION START-->
+
+<section class="contact" id="contact">
+    <div class="row justify-content-end">
+        <div class="col-md-7 text-center">
+            <h2 class="contact__title"><?php echo $lang['Контакти'] ?></h2>
+            <div class="contact__item">
+                <div class="contact__icon">
+                    <img src="img/email-icon.svg" alt="" width="45">
+                </div>
+                <div class="contact__text">
+                    <a href="mailto:yellowhill.school@gmail.com">yellowhill.school@gmail.com</a>
+                </div>
+            </div>
+            <div class="contact__item">
+                <div class="contact__icon">
+                    <img src="img/phone-icon.svg" alt="" width="30">
+                </div>
+                <div class="contact__text">
+                    <p><a href="tel:+380687467538" class="phone">0687467538</a> <a href="https://t.me/yellow_hill" target="_blank"><img src="img/telegram-icon.svg" alt="" width="45"></a><a href="https://www.facebook.com/yellowhill.school" class="phone" target="_blank"><img src="img/facebook-svgrepo-com.svg" alt="" width="45"></a></p>
+                    <p><a href="tel:+380993527358" class="phone">0993527358</a> <a title="Viber" href="viber://chat?number=380687467538" target="_blank"><img src="img/viber-icon.svg" alt="" width="45"></a><a href="https://www.instagram.com/yellowhill.school/?hl=ru" class="phone" target="_blank"><img src="img/instagram-logo-svgrepo-com.svg" alt="" width="45"></a></p>
+                </div>
+            </div>
+            <div class="contact__item">
+                <div class="contact__icon">
+                    <img src="img/address-icon.svg" alt="" width="30">
+                </div>
+                <div class="contact__text" style="text-align: left;">
+                    <p><?php echo $lang['метро Майдан Незалежності (5хв)'] ?></p>
+                    <p><?php echo $lang['метро Золоті Ворота (8 хв)'] ?></p>
+                    <p><?php echo $lang['Вул. Софіївська 6'] ?></p>
+                </div>
+            </div>
+            <img src="img/contact_bg.png" alt="" class="contact-mobile">
+        </div>
+    </div>
+</section>
+
+<!--CONTACT SECTION END-->
+<div id="popup__toggle" >
+    <div class="circlephone" style="transform-origin: center;"></div>
+    <div class="circle-fill" style="transform-origin: center;"></div>
+    <div class="img-circle" style="transform-origin: center;">
+        <div class="img-circleblock" style="transform-origin: center;"></div>
+    </div>
+</div>
+<div class="cover-bg"></div>
+<div class="modal">
+    <img src="img/close.svg" alt="" class="modal__close">
+    <div class="modal__wrapper">
+        <h2 class="modal__title"><?php echo $lang['Передзвоніть мені'] ?></h2>
+        <form action="" id="callback-form">
+            <h2 class="callback-success"><?php echo $lang['Дякуємо за заявку, ми зв\'яжемося з вами найближчим часом'] ?></h2>
+            <div class="input__holder input-effect">
+                <input class="effect-24 request__input" type="text" name="first-name" id="name-callback" placeholder="" required>
+                <label><?php echo $lang['Ім\'я'] ?></label>
+                <span class="focus-bg"></span>
+            </div>
+            <div class="input__holder input-effect">
+                <input class="effect-24 request__input" type="text" name="telephone" id="phone-callback" placeholder="" required>
+                <label><?php echo $lang['Телефон'] ?></label>
+                <span class="focus-bg"></span>
+            </div>
+            <a href="#" class="modal__send"><?php echo $lang['Надіслати'] ?></a>
+        </form>
+    </div>
+</div>
+
+<script src="js/scripts.min.js"></script>
+
+</body>
+</html>
